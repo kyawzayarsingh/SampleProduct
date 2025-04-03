@@ -1,0 +1,31 @@
+﻿@model SampleProduct.ViewModels.Product.ProductEntryModel
+@{
+    ViewBag.Title = "Product Entry";
+}
+
+<div class="card" style="width: 40rem;">
+    <div class="card-body">
+        <h5 class="card-title mb-4">Product Entry</h5>
+        @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class="col-md-12 row">
+                    <div class="col-md-5">
+                        <span class="text-danger" id="errorMessage">@Model.ErrorMessage</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" value="@Model.Product.product_name" asp-for="@Model.Product.product_name" class="form-control" id="productName" placeholder="name">
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a href="~/Product/Index" class="btn btn-dark ml-2">Back</a>
+            </div>
+
+        }
+    </div>
+</div>
